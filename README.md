@@ -1,6 +1,6 @@
 [![Docker Repository on Quay.io](https://quay.io/repository/sameersbn/openfire/status "Docker Repository on Quay.io")](https://quay.io/repository/sameersbn/openfire)
 
-# sameersbn/openfire:4.0.1
+# bunnyfu/openfire:4.0.1
 
 - [Introduction](#introduction)
   - [Contributing](#contributing)
@@ -43,9 +43,9 @@ If the above recommendations do not help then [report your issue](../../issues/n
 
 ## Installation
 
-Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/sameersbn/openfire) and is the recommended method of installation.
+Automated builds of the image are available on [Dockerhub](https://hub.docker.com/r/bunnyfu/openfire) and is the recommended method of installation.
 
-> **Note**: Builds are also available on [Quay.io](https://quay.io/repository/sameersbn/openfire)
+> **Note**: Builds are also available on [Quay.io](https://quay.io/repository/bunnyfu/openfire)
 
 ```bash
 docker pull 
