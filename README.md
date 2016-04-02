@@ -1,4 +1,4 @@
-# bunnyfu/openfire:4.0.1
+# bunnyfu/openfire:4.0.2
 
 - [Introduction](#introduction)
   - [Contributing](#contributing)
@@ -63,7 +63,7 @@ Start Openfire using:
 docker run --name openfire -d --restart=always \
   --publish 9090:9090 --publish 5222:5222 --publish 7777:7777 \
   --volume /srv/docker/openfire:/var/lib/openfire \
-  bunnyfu/openfire:4.0.1
+  bunnyfu/openfire:4.0.2
 ```
 
 *Alternatively, you can use the sample [docker-compose.yml](docker-compose.yml) file to start the container using [Docker Compose](https://docs.docker.com/compose/)*
@@ -100,7 +100,7 @@ To upgrade to newer releases:
   1. Download the updated Docker image:
 
   ```bash
-  docker pull bunnyfu/openfire:4.0.1
+  docker pull bunnyfu/openfire:4.0.2
   ```
 
   2. Stop the currently running image:
@@ -120,7 +120,7 @@ To upgrade to newer releases:
   ```bash
   docker run -name openfire -d \
     [OPTIONS] \
-    bunnyfu/openfire:4.0.1
+    bunnyfu/openfire:4.0.2
   ```
 
 ## Shell Access
