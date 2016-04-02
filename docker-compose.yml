@@ -6,3 +6,4 @@ Openfire:
     - "7777:7777"
   volumes:
     - /srv/docker/openfire/openfire:/var/lib/openfire
+
