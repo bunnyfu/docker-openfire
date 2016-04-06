@@ -6,7 +6,8 @@ ENV OPENFIRE_VERSION=4.0.2 \
     OPENFIRE_DATA_DIR=/var/lib/openfire \
     OPENFIRE_LOG_DIR=/var/log/openfire
 
-RUN apt-get update \
+RUN echo 'deb http://ftp.debian.org/debian testing main' > /etc/apt/sources.list \
+ && apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-8-jre \
  && wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
  && dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
