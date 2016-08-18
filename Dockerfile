@@ -1,4 +1,4 @@
-FROM eboraas/debian:jessie
+FROM eboraas/debian:stretch
 MAINTAINER bunnyfu@gmail.com
 
 ENV OPENFIRE_VERSION=4.0.3 \
