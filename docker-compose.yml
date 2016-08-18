@@ -1,5 +1,5 @@
 Openfire:
-  image: bunnyfu/openfire:4.0.1
+  image: bunnyfu/openfire:4.0.3
   ports:
     - "9090:9090"
     - "5222:5222"
