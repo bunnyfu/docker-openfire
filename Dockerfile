@@ -1,4 +1,4 @@
-FROM sameersbn/ubuntu:14.04.20160121
+FROM sameersbn/debian:latest
 MAINTAINER sameer@damagehead.com
 
 ENV OPENFIRE_VERSION=4.0.3 \
@@ -7,7 +7,6 @@ ENV OPENFIRE_VERSION=4.0.3 \
     OPENFIRE_LOG_DIR=/var/log/openfire
 
 RUN apt-get update \
- && DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre \
  && wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
  && dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
  && mv /var/lib/openfire/plugins/admin /usr/share/openfire/plugin-admin \
