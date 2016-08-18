@@ -1,5 +1,5 @@
-FROM sameersbn/debian:jessie.20140918
-MAINTAINER sameer@damagehead.com
+FROM eboraas/debian:jessie
+MAINTAINER bunnyfu@gmail.com
 
 ENV OPENFIRE_VERSION=4.0.3 \
     OPENFIRE_USER=openfire \
