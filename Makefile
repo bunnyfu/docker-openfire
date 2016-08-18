@@ -1,7 +1,7 @@
 all: build
 
 build:
-	@docker build --tag=sameersbn/openfire .
+	@docker build --tag=bunnyfu/openfire .
 
 release: build
-	@docker build --tag=sameersbn/openfire:$(shell cat VERSION) .
+	@docker build --tag=bunnyfu/openfire:$(shell cat VERSION) .
