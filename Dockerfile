@@ -1,4 +1,4 @@
-FROM konstruktoid/debian:latest
+FROM sameersbn/ubuntu:14.04.20160121
 MAINTAINER sameer@damagehead.com
 
 ENV OPENFIRE_VERSION=4.0.3 \
