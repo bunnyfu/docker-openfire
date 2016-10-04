@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER a@b.com
 
-ENV OPENFIRE_VERSION 4_0_3 \
+ENV OPENFIRE_VERSION 4.0.3 \
     OPENFIRE_USER=openfire \
     OPENFIRE_DATA_DIR=/var/lib/openfire \
     OPENFIRE_LOG_DIR=/var/log/openfire
@@ -15,9 +15,9 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre
-RUN wget "http://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}.tar.gz" -O /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
-RUN tar zxf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
-RUN rm -rf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
+RUN wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb
+RUN dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb
+RUN rm -rf /tmp/openfire_${OPENFIRE_VERSION}_all.deb
 RUN apt-get -y clean
 
 ADD startup.bash /startup.bash
