@@ -8,9 +8,9 @@ ENV OPENFIRE_VERSION=4.0.3 \
 
 RUN apt-get update && apt-get install -y apt-transport-https
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre
-RUN cd /tmp \
-	&& wget -O openfire.deb "https://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}_all.deb" \
-	&& dpkg -i openfire.deb
+RUN cd /tmp
+RUN wget -O openfire.deb https://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}_all.deb
+RUN dpkg -i openfire.deb
 RUN mv /var/lib/openfire/plugins/admin /usr/share/openfire/plugin-admin
 RUN rm -rf openfire_${OPENFIRE_VERSION}_all.deb
 RUN rm -rf /var/lib/apt/lists/*
