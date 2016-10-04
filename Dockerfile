@@ -15,7 +15,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre
-RUN wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb
+RUN wget http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb
 RUN dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb
 RUN rm -rf /tmp/openfire_${OPENFIRE_VERSION}_all.deb
 RUN apt-get -y clean
