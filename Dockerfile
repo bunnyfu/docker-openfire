@@ -1,10 +1,7 @@
 FROM debian:jessie
-MAINTAINER sameer@damagehead.com
+MAINTAINER a@b.com
 
-ENV OPENFIRE_VERSION=4.0.3 \
-    OPENFIRE_USER=openfire \
-    OPENFIRE_DATA_DIR=/var/lib/openfire \
-    OPENFIRE_LOG_DIR=/var/log/openfire
+ENV OPENFIRE_VERSION 4_0_3
 ENV JAVA_HOME /opt/java
 
 RUN apt-get update \
@@ -17,7 +14,7 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get install -y wget postgresql \
   && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz -O /tmp/jdk-7u80-linux-x64.tar.gz \
   && wget "http://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}.tar.gz" -O /tmp/openfire_${OPENFIRE_VERSION}.tar.gz \
-  && cd /opt && tar zxf /tmp/openfire_4_0_3.tar.gz \
+  && cd /opt && tar zxf /tmp/openfire_4_0_2.tar.gz \
   && tar zxf /tmp/jdk-7u80-linux-x64.tar.gz \
   && ln -s /opt/jdk1.7.0_80 /opt/java \
   && rm -rf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz /tmp/jdk-7u80-linux-x64.tar.gz \
@@ -28,5 +25,14 @@ RUN chmod 755 /startup.bash
 
 CMD ["/startup.bash"]
 
-EXPOSE 3478/tcp 3479/tcp 5222/tcp 5223/tcp 5229/tcp 5269/tcp 7070/tcp 7443/tcp 7777/tcp 9090/tcp 9091/tcp
-VOLUME ["${OPENFIRE_DATA_DIR}"]
+EXPOSE 3478
+EXPOSE 3479
+EXPOSE 5222
+EXPOSE 5223
+EXPOSE 5229
+EXPOSE 5269
+EXPOSE 7070
+EXPOSE 7443
+EXPOSE 7777
+EXPOSE 9090
+EXPOSE 9091
