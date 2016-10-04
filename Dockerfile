@@ -14,12 +14,10 @@ RUN apt-get update \
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
-RUN apt-get install -y wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u102-b14/jdk-8u102-linux-x64.tar.gz -O /tmp/jdk-8u102-linux-x64.tar.gz
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre
 RUN wget "http://www.igniterealtime.org/downloadServlet?filename=openfire/openfire_${OPENFIRE_VERSION}.tar.gz" -O /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
-RUN cd /opt && tar zxf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
-RUN tar zxf /tmp/jdk-8u102-linux-x64.tar.gz
-RUN ln -s /opt/jdk1.8.0_102 /opt/java
-RUN rm -rf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz /tmp/jdk-8u102-linux-x64.tar.gz
+RUN tar zxf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
+RUN rm -rf /tmp/openfire_${OPENFIRE_VERSION}.tar.gz
 RUN apt-get -y clean
 
 ADD startup.bash /startup.bash
