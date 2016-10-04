@@ -8,9 +8,10 @@ ENV OPENFIRE_VERSION=4.0.3 \
     
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openjdk-7-jre
-RUN wget http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb && dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb
+RUN cd /tmp && wget http://download.igniterealtime.org/openfire/openfire_4.0.3_all.deb
+RUN dpkg -i openfire_4.0.3_all.deb
 RUN mv /var/lib/openfire/plugins/admin /usr/share/openfire/plugin-admin
-RUN rm -rf openfire_${OPENFIRE_VERSION}_all.deb
+RUN rm -rf openfire_4.0.3_all.deb
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh /sbin/entrypoint.sh
