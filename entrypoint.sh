@@ -39,7 +39,7 @@ initialize_data_dir() {
   CURRENT_VERSION=
   [[ -f ${OPENFIRE_DATA_DIR}/VERSION ]] && CURRENT_VERSION=$(cat ${OPENFIRE_DATA_DIR}/VERSION)
   if [[ ${OPENFIRE_VERSION} != ${CURRENT_VERSION} ]]; then
-    echo -n "${OPENFIRE_VERSION}" | sudo -HEu ${OPENFIRE_USER} tee ${OPENFIRE_DATA_DIR}/VERSION >/dev/null
+    echo -n "${OPENFIRE_VERSION}" | tee ${OPENFIRE_DATA_DIR}/VERSION >/dev/null
   fi
 }
 
