@@ -29,7 +29,7 @@ initialize_data_dir() {
   rm -rf ${OPENFIRE_DATA_DIR}/lib
 
   # initialize the data volume
-  su ${OPENFIRE_USER}
+  su ${OPENFIRE_USER} -s /bin/bash
   if [[ ! -d ${OPENFIRE_DATA_DIR}/conf ]]; then
     cp -a /etc/openfire ${OPENFIRE_DATA_DIR}/conf
   fi
