@@ -6,11 +6,11 @@ ENV OPENFIRE_VERSION=4.0.3 \
       OPENFIRE_DATA_DIR=/var/lib/openfire \
       OPENFIRE_LOG_DIR=/var/log/openfire
   
-RUN add-apt-repository ppa:openjdk-r/ppa \
-  && apt-get update \
+RUN apt-get update \
   && apt-get install -y software-properties-common \ 
   python-software-properties \
   default-jre-headless \
+  && add-apt-repository ppa:openjdk-r/ppa \
   && apt-get update \
   && apt-get install -y openjdk-8-jre openjdk-7-jre \
   && update-java-alternatives --jre-headless -s java-1.8.0-openjdk-amd64 \
