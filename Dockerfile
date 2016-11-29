@@ -10,6 +10,7 @@ RUN apt-get update \
   && apt-get install -y software-properties-common \ 
   python-software-properties \
   default-jre-headless \
+  wget \
   && wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
   && dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
   && mv /var/lib/openfire/plugins/admin /usr/share/openfire/plugin-admin \
