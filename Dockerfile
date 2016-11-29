@@ -6,10 +6,14 @@ ENV OPENFIRE_VERSION=4.0.3 \
       OPENFIRE_DATA_DIR=/var/lib/openfire \
       OPENFIRE_LOG_DIR=/var/log/openfire
   
-RUN apt-get update \
+RUN add-apt-repository ppa:openjdk-r/ppa \
+  && apt-get update \
   && apt-get install -y software-properties-common \ 
   python-software-properties \
   default-jre-headless \
+  && apt-get update \
+  && apt-get install -y openjdk-8-jre openjdk-7-jre \
+  && update-java-alternatives --jre-headless -s java-1.8.0-openjdk-amd64 \
   wget \
   && wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
   && dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
