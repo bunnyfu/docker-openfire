@@ -12,9 +12,10 @@ RUN apt-get update \
   default-jre-headless \
   && add-apt-repository ppa:openjdk-r/ppa \
   && apt-get update \
-  && apt-get install -y openjdk-8-jre openjdk-7-jre \
-  && update-java-alternatives --jre-headless -s java-1.8.0-openjdk-amd64 \
+  && apt-get install -y openjdk-8-jre \
   wget \
+  openjdk-7-jre \
+  && update-java-alternatives --jre-headless -s java-1.8.0-openjdk-amd64 \
   && wget "http://download.igniterealtime.org/openfire/openfire_${OPENFIRE_VERSION}_all.deb" -O /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
   && dpkg -i /tmp/openfire_${OPENFIRE_VERSION}_all.deb \
   && mv /var/lib/openfire/plugins/admin /usr/share/openfire/plugin-admin \
