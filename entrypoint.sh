@@ -29,13 +29,14 @@ initialize_data_dir() {
   rm -rf ${OPENFIRE_DATA_DIR}/lib
 
   # initialize the data volume
+  su ${OPENFIRE_USER}
   if [[ ! -d ${OPENFIRE_DATA_DIR}/conf ]]; then
-    sudo -HEu ${OPENFIRE_USER} cp -a /etc/openfire ${OPENFIRE_DATA_DIR}/conf
+    cp -a /etc/openfire ${OPENFIRE_DATA_DIR}/conf
   fi
-  sudo -HEu ${OPENFIRE_USER} mkdir -p ${OPENFIRE_DATA_DIR}/{plugins,embedded-db}
-  sudo -HEu ${OPENFIRE_USER} rm -rf ${OPENFIRE_DATA_DIR}/plugins/admin
-  sudo -HEu ${OPENFIRE_USER} ln -sf /usr/share/openfire/plugin-admin /var/lib/openfire/plugins/admin
-
+  mkdir -p ${OPENFIRE_DATA_DIR}/{plugins,embedded-db}
+  rm -rf ${OPENFIRE_DATA_DIR}/plugins/admin
+  ln -sf /usr/share/openfire/plugin-admin /var/lib/openfire/plugins/admin
+  exit
   # create version file
   CURRENT_VERSION=
   [[ -f ${OPENFIRE_DATA_DIR}/VERSION ]] && CURRENT_VERSION=$(cat ${OPENFIRE_DATA_DIR}/VERSION)
