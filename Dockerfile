@@ -1,7 +1,7 @@
 FROM ubuntu:16.04
   MAINTAINER executorj@gmail.com
   
-ENV OPENFIRE_VERSION=4.1.1 \
+ENV OPENFIRE_VERSION=4.1.4 \
       OPENFIRE_USER=openfire \
       OPENFIRE_DATA_DIR=/var/lib/openfire \
       OPENFIRE_LOG_DIR=/var/log/openfire
