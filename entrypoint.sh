@@ -30,17 +30,16 @@ initialize_data_dir() {
 
   # initialize the data volume
   if [[ ! -d ${OPENFIRE_DATA_DIR}/conf ]]; then
-    sudo -HEu ${OPENFIRE_USER} cp -a /etc/openfire ${OPENFIRE_DATA_DIR}/conf
+    cp -a /etc/openfire ${OPENFIRE_DATA_DIR}/conf
   fi
-  sudo -HEu ${OPENFIRE_USER} mkdir -p ${OPENFIRE_DATA_DIR}/{plugins,embedded-db}
-  sudo -HEu ${OPENFIRE_USER} rm -rf ${OPENFIRE_DATA_DIR}/plugins/admin
-  sudo -HEu ${OPENFIRE_USER} ln -sf /usr/share/openfire/plugin-admin /var/lib/openfire/plugins/admin
-
+  mkdir -p ${OPENFIRE_DATA_DIR}/{plugins,embedded-db}
+  rm -rf ${OPENFIRE_DATA_DIR}/plugins/admin
+  ln -sf /usr/share/openfire/plugin-admin /var/lib/openfire/plugins/admin
   # create version file
   CURRENT_VERSION=
   [[ -f ${OPENFIRE_DATA_DIR}/VERSION ]] && CURRENT_VERSION=$(cat ${OPENFIRE_DATA_DIR}/VERSION)
   if [[ ${OPENFIRE_VERSION} != ${CURRENT_VERSION} ]]; then
-    echo -n "${OPENFIRE_VERSION}" | sudo -HEu ${OPENFIRE_USER} tee ${OPENFIRE_DATA_DIR}/VERSION >/dev/null
+    echo -n "${OPENFIRE_VERSION}" | tee ${OPENFIRE_DATA_DIR}/VERSION >/dev/null
   fi
 }
 
